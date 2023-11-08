@@ -1,31 +1,78 @@
-//edit this resolver to include our variables
+const { signToken, AuthenticationError } = require('../utils/auth');
 
-const { Tech, Matchup } = require('../models');
+// const resolvers = {
+//   Query: {
+//     users: async () => {
+//       return User.find().populate('thoughts');
+//     },
+//     user: async (parent, { username }) => {
+//       return User.findOne({ username }).populate('thoughts');
+//     },
+//     thoughts: async (parent, { username }) => {
+//       const params = username ? { username } : {};
+//       return Thought.find(params).sort({ createdAt: -1 });
+//     },
+//     thought: async (parent, { thoughtId }) => {
+//       return Thought.findOne({ _id: thoughtId });
+//     },
+//   },
 
-const resolvers = {
-  Query: {
-    tech: async () => {
-      return Tech.find({});
-    },
-    matchups: async (parent, { _id }) => {
-      const params = _id ? { _id } : {};
-      return Matchup.find(params);
-    },
-  },
-  Mutation: {
-    createMatchup: async (parent, args) => {
-      const matchup = await Matchup.create(args);
-      return matchup;
-    },
-    createVote: async (parent, { _id, techNum }) => {
-      const vote = await Matchup.findOneAndUpdate(
-        { _id },
-        { $inc: { [`tech${techNum}_votes`]: 1 } },
-        { new: true }
-      );
-      return vote;
-    },
-  },
-};
+//   Mutation: {
+//     addUser: async (parent, { username, email, password }) => {
+//       const user = await User.create({ username, email, password });
+//       const token = signToken(user);
+//       return { token, user };
+//     },
+//     login: async (parent, { email, password }) => {
+//       const user = await User.findOne({ email });
+
+//       if (!user) {
+//         throw AuthenticationError;
+//       }
+
+//       const correctPw = await user.isCorrectPassword(password);
+
+//       if (!correctPw) {
+//         throw AuthenticationError;
+//       }
+
+//       const token = signToken(user);
+
+//       return { token, user };
+//     },
+//     addThought: async (parent, { thoughtText, thoughtAuthor }) => {
+//       const thought = await Thought.create({ thoughtText, thoughtAuthor });
+
+//       await User.findOneAndUpdate(
+//         { username: thoughtAuthor },
+//         { $addToSet: { thoughts: thought._id } }
+//       );
+
+//       return thought;
+//     },
+//     addComment: async (parent, { thoughtId, commentText, commentAuthor }) => {
+//       return Thought.findOneAndUpdate(
+//         { _id: thoughtId },
+//         {
+//           $addToSet: { comments: { commentText, commentAuthor } },
+//         },
+//         {
+//           new: true,
+//           runValidators: true,
+//         }
+//       );
+//     },
+//     removeThought: async (parent, { thoughtId }) => {
+//       return Thought.findOneAndDelete({ _id: thoughtId });
+//     },
+//     removeComment: async (parent, { thoughtId, commentId }) => {
+//       return Thought.findOneAndUpdate(
+//         { _id: thoughtId },
+//         { $pull: { comments: { _id: commentId } } },
+//         { new: true }
+//       );
+//     },
+//   },
+// };
 
 module.exports = resolvers;

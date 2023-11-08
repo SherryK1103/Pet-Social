@@ -1,15 +1,16 @@
 const typeDefs = `
-  type Tech {
+  type Pet {
     _id: ID!
     name: String!
+    age: Int
+    type: String
   }
 
-  type Matchup {
+  type Comment {
     _id: ID!
-    tech1: String!
-    tech2: String!
-    tech1_votes: Int
-    tech2_votes: Int
+    commentText: String!
+    commentAuthor: String!
+    createdAt: String
   }
 
   type Query {
