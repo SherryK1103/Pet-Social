@@ -1,4 +1,5 @@
-const { signToken, AuthenticationError } = require('../utils/auth');
+const { signToken, AuthenticationError } = import ('../../client/utils/auth.js');
+
 
 // const resolvers = {
 //   Query: {
