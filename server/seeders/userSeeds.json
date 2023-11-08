@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "username": "Rocket Bailey",
+    "email": "buttermilkinthoughts@gmail.com",
+    "password": "password123",
+    "breed": "Labrador Retriever",
+    "coloringMarks": "Black"
+  },
+  {
+    "id": 2,
+    "username": "Baby Godzilla",
+    "email": "g.donna120@gmail.com",
+    "password": "password123",
+    "breed": "Kaiju Canine",
+    "coloringMarks": "Grey"
+  },
+  {
+    "id": 3,
+    "username": "Sindel Page",
+    "email": "npage1221@gmail.com",
+    "password": "password123",
+    "breed": "Domestic Shorthair",
+    "coloringMarks": "Dark brown with white legs"
+  },
+  {
+    "id": 4,
+    "username": "Pacino Kneitz",
+    "email": "sherrykneitz@gmail.com",
+    "password": "password123",
+    "breed": "Part Maine Coon",
+    "coloringMarks": "Long hair, Grey with white paws and white streak on his face"
+  }
+]
