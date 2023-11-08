@@ -3,8 +3,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import App from './App.jsx';
 import NotFound from '../pages/NotFound.jsx';
-import Welcome from '../pages/Welcome.jsx';
-import Home from '../pages/Home.jsx';
+import Login from '../pages/Login.jsx';
+import Signup from '../pages/Signup.jsx';
 //edit the paths and create the pages to import
 const router = createBrowserRouter([
     {
@@ -15,18 +15,19 @@ const router = createBrowserRouter([
       children: [
         {
           index: true,
-          element: <Welcome />
+          element: <Login />
         },
         // {
         //   index: true,
         //   element: <Home />
         // },
         {
-          path: '/login',
-          element: <insertpathhere />
-        }, {
-          path: '/matchup/:id',
-          element: <Vote />
+        path: '/login',
+        element: <Login />
+        }, 
+        {
+        path: '/signup',
+        element: <Signup />
         },
       ],
     },
