@@ -1,19 +1,16 @@
 const db = require('../config/connection');
-const { User, Thought } = require('../models');
 const userSeeds = require('./userSeeds.json');
-const thoughtSeeds = require('./thoughtSeeds.json');
+const commentSeeds = require('./commentSeeds.json');
 const petDB = require('./petDB');
 
 db.once('open', async () => {
   try {
     // await petDB('Thought', 'thoughts');
-
-    await petDB('User', 'users');
-
+    await petDB(User, 'users');
     await User.create(userSeeds);
 
-    for (let i = 0; i < thoughtSeeds.length; i++) {
-      const { _id, thoughtAuthor } = await Thought.create(thoughtSeeds[i]);
+    for (let i = 0; i < commentSeeds.length; i++) {
+      const { _id, thoughtAuthor } = await Thought.create(commentSeeds[i]);
       const user = await User.findOneAndUpdate(
         { username: thoughtAuthor },
         {
