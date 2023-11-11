@@ -1,61 +1,46 @@
-const { signToken, AuthenticationError } = import ('../../client/utils/auth.js');
-
+const { Profile } = require('../models');
+const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-    users: async () => {
-      return User.find().populate('thoughts');
+    profiles: async () => {
+      return Profile.find();
     },
-    user: async (parent, { username }) => {
-      return User.findOne({ username }).populate('thoughts');
-    },
-    thoughts: async (parent, { username }) => {
-      const params = username ? { username } : {};
-      return Thought.find(params).sort({ createdAt: -1 });
-    },
-    thought: async (parent, { thoughtId }) => {
-      return Thought.findOne({ _id: thoughtId });
+
+    profile: async (parent, { profileId }) => {
+      return Profile.findOne({ _id: profileId });
     },
   },
 
   Mutation: {
-    addUser: async (parent, { username, email, password }) => {
-      const user = await User.create({ username, email, password });
-      const token = signToken(user);
-      return { token, user };
+    addProfile: async (parent, { name, email, password }) => {
+      const profile = await Profile.create({ name, email, password });
+      const token = signToken(profile);
+
+      return { token, profile };
     },
     login: async (parent, { email, password }) => {
-      const user = await User.findOne({ email });
+      const profile = await Profile.findOne({ email });
 
-      if (!user) {
+      if (!profile) {
         throw AuthenticationError;
       }
 
-      const correctPw = await user.isCorrectPassword(password);
+      const correctPw = await profile.isCorrectPassword(password);
 
       if (!correctPw) {
         throw AuthenticationError;
       }
 
-      const token = signToken(user);
-
-      return { token, user };
+      const token = signToken(profile);
+      return { token, profile };
     },
-    addThought: async (parent, { thoughtText, thoughtAuthor }) => {
-      const thought = await Thought.create({ thoughtText, thoughtAuthor });
 
-      await User.findOneAndUpdate(
-        { username: thoughtAuthor },
-        { $addToSet: { thoughts: thought._id } }
-      );
-
-      return thought;
-    },
-    addComment: async (parent, { thoughtId, commentText, commentAuthor }) => {
-      return Thought.findOneAndUpdate(
-        { _id: thoughtId },
+    addSkill: async (parent, { profileId, skill }) => {
+      return Profile.findOneAndUpdate(
+        { _id: profileId },
         {
-          $addToSet: { comments: { commentText, commentAuthor } },
+          $addToSet: { skills: skill },
         },
         {
           new: true,
@@ -63,13 +48,13 @@ const resolvers = {
         }
       );
     },
-    removeThought: async (parent, { thoughtId }) => {
-      return Thought.findOneAndDelete({ _id: thoughtId });
+    removeProfile: async (parent, { profileId }) => {
+      return Profile.findOneAndDelete({ _id: profileId });
     },
-    removeComment: async (parent, { thoughtId, commentId }) => {
-      return Thought.findOneAndUpdate(
-        { _id: thoughtId },
-        { $pull: { comments: { _id: commentId } } },
+    removeSkill: async (parent, { profileId, skill }) => {
+      return Profile.findOneAndUpdate(
+        { _id: profileId },
+        { $pull: { skills: skill } },
         { new: true }
       );
     },
