@@ -1,13 +1,17 @@
-const { Schema, model } = require('mongoose');
-const userSchema = new Schema(
-  {
-    userName: {
-      type: String,
-      required: true,
-    },
-    email: {
+const db = require('../config/connection');
+const petSchema = new db ({
+    name: {
         type: String,
-        required: true,
+        require: true,
+    },
+
+    breed: {
+        type: String,
+        require: true,
+    },
+
+    colorMarks: {
+        type: String,  
     },
   
   },
@@ -15,7 +19,7 @@ const userSchema = new Schema(
     timestamps: true,
   }
 );
-const User = model('User', userSchema);
+const User = model('User', petSchema);
 module.exports = User;
 
 
