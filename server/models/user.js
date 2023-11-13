@@ -1,20 +1,20 @@
 const db = require('../config/connection');
-const petSchema = new db ({
-    name: {
-        type: String,
-        require: true,
-    },
-
-    breed: {
-        type: String,
-        require: true,
-    },
-
-    colorMarks: {
-        type: String,  
-    },
-  
+const petSchema = new db({
+  username: {
+    type: String,
+    require: true,
   },
+
+  breed: {
+    type: String,
+    require: true,
+  },
+
+  colorMarks: {
+    type: String,
+  },
+
+},
   {
     timestamps: true,
   }
