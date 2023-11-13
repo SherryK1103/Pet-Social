@@ -1,4 +1,5 @@
 const db = require('../config/connection');
+
 const petSchema = new db({
   username: {
     type: String,
@@ -21,17 +22,3 @@ const petSchema = new db({
 );
 const User = model('User', petSchema);
 module.exports = User;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
