@@ -1,5 +1,5 @@
 const typeDefs = `
-  type Profile {
+  type User {
     _id: ID
     username: String!
     email: String!
@@ -8,18 +8,18 @@ const typeDefs = `
 
   type Auth {
     token: ID!
-    profile: Profile
+    user: User
   }
 
   type Query {
-    profiles: [Profile]!
-    profile(profileId: ID!): Profile
+    users: [User]!
+    user(userId: ID!): User
   }
 
   type Mutation {
     login(email: String!, password: String!): Auth
-    addProfile(name: String!, email: String!, password: String!): Auth
-    removeProfile(profileId: ID!): Profile
+    addUser(username: String!, email: String!, password: String!): Auth
+    removeUser(userId: ID!): User
   }
 `;
 
