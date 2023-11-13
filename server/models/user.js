@@ -1,24 +1,21 @@
 const db = require('../config/connection');
+const { Schema, model } = require('mongoose');
 
-const petSchema = new db({
+const petSchema = new Schema({
   username: {
     type: String,
-    require: true,
+    required: true,
   },
-
   breed: {
     type: String,
-    require: true,
+    required: true,
   },
-
   colorMarks: {
     type: String,
   },
+}, {
+  timestamps: true,
+});
 
-},
-  {
-    timestamps: true,
-  }
-);
-const User = model('User', petSchema);
-module.exports = User;
+const Pet = model('Pet', petSchema);
+module.exports = Pet;
