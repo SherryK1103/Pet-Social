@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import '../styles/index.css';
 import { Form, Button, Alert } from 'tailwindcss';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../../utils/mutations';

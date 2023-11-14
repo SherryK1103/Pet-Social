@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import '../styles/index.css';
 import { Navbar, Nav, Container, Modal, Tab } from 'tailwindcss';
 import SignUpForm from './SignupForm';
 import LoginForm from './LoginForm';
