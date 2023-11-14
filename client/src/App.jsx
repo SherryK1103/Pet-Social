@@ -1,10 +1,9 @@
 import { Outlet } from 'react-router-dom';
-import { ApolloClient, ApolloProvider, InMemoryCache, createHttpLink } from '@apollo/client';
-import { setContext } from '@apollo/client/link/context';
+import { ApolloClient, ApolloProvider, InMemoryCache} from '@apollo/client';
 import React from 'react';
 
-import Header from './components/header';
-import Footer from './components/footer';
+import Header from './components/header/index';
+import Footer from './components/footer/index';
 import Navbar from './components/Navbar';
 
 const client = new ApolloClient({
