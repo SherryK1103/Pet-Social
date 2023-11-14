@@ -1,26 +1,20 @@
-const db = require('../config/connection');
+const connection = require('../config/connection');
 const userSeeds = require('./userSeeds.json');
-const commentSeeds = require('./commentSeeds.json');
-const petDB = require('./petDB');
+// const commentSeeds = require('./commentSeeds.json');
 const User = require('../models/user');
 
-db.once('open', async () => {
-  try {
-    // await petDB('Thought', 'thoughts');
-    await petDB(User, 'users');
-    await User.create(userSeeds);
+// const { getRandomName, getRandomAssignments } = require('./data');
 
-    for (let i = 0; i < commentSeeds.length; i++) {
-      const { _id, commentAuthor } = await comment.create(commentSeeds[i]);
-      const user = await User.findOneAndUpdate(
-        { username: commentAuthor },
-        {
-          $addToSet: {
-            thoughts: _id,
-          },
-        }
-      );
+connection.once('open', async () => {
+  try {
+
+    let userCheck = await connection.db.listCollections({ name: 'users' }).toArray();
+    if (userCheck.length) {
+      await connection.dropCollection('users');
     }
+
+    await User.collection.insertMany(userSeeds);
+
   } catch (err) {
     console.error(err);
     process.exit(1);

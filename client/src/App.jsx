@@ -5,37 +5,22 @@ import React from 'react';
 
 import Header from './components/header';
 import Footer from './components/footer';
-
-// Construct our main GraphQL API endpoint
-const httpLink = createHttpLink({
-  uri: '/graphql',
-});
-
-const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem('id_token');
-  return {
-    headers: {
-      ...headers,
-      authorization: token ? `Bearer ${token}` : '',
-    },
-  };
-});
+import Navbar from './components/Navbar';
 
 const client = new ApolloClient({
-  link: authLink.concat(httpLink),
+  uri: '/graphql',
   cache: new InMemoryCache(),
 });
 
 function App() {
   return (
     <ApolloProvider client={client}>
-      <div className="flex-column justify-center align-center min-100-vh bg-primary">
-      <Header />
-      <div className="container">
+      <>
+        <Header />
+        <Navbar />
         <Outlet />
-      </div>
-      <Footer />
-      </div>
+        <Footer />
+      </>
     </ApolloProvider>
   );
 }
