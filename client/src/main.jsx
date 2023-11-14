@@ -3,10 +3,9 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import React from 'react';
 
 import App from './App.jsx';
-import NotFound from '../pages/NotFound.jsx';
-import Login from '../pages/Login.jsx';
-import Signup from '../pages/Signup.jsx';
-import FrontPage from '../pages/FrontPage.jsx';
+// import NotFound from '../pages/NotFound.jsx';
+import LoginForm from './components/LoginForm.jsx';
+import SignupForm from './components/SignupForm.jsx';
 //edit the paths and create the pages to import
 const router = createBrowserRouter([
     {
@@ -17,15 +16,15 @@ const router = createBrowserRouter([
       children: [
         {
           index: true,
-          element: <FrontPage />
+          element: <LoginForm />
         },
-        {
-        path: '/login',
-        element: <Login />
-        }, 
+        // {
+        // path: '/login',
+        // element: <LoginForm />
+        // }, 
         {
         path: '/signup',
-        element: <Signup />
+        element: <SignupForm />
         },
       ],
     },
