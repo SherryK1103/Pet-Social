@@ -1,6 +1,8 @@
 // see SignupForm.js for comments
 import { useState, useEffect } from 'react';
-import { Form, Button, Alert } from 'tailwindcss';
+// import { Form, Button, Alert } from 'tailwindcss';
+import '../styles/index.css';
+
 
 import { useMutation } from '@apollo/client'; 
 import { LOGIN_USER } from '../../utils/mutations';
