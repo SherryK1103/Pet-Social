@@ -13,65 +13,62 @@ const AppNavbar = () => {
 
   return (
     <>
-      <Navbar bg='dark' variant='dark' expand='lg'>
-        <Container fluid>
-          <Navbar.Brand as={Link} to='/'>
-            Google Books Search
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls='navbar' />
-          <Navbar.Collapse id='navbar' className='d-flex flex-row-reverse'>
-            <Nav className='ml-auto d-flex'>
-              <Nav.Link as={Link} to='/'>
-                Search For Pets
-              </Nav.Link>
-              {/* if user is logged in show saved books and logout */}
-              {Auth.loggedIn() ? (
-                <>
-                  <Nav.Link as={Link} to='/saved'>
-                    See Your Books
-                  </Nav.Link>
-                  <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
-                </>
-              ) : (
-                <Nav.Link onClick={() => setShowModal(true)}>Login/Sign Up</Nav.Link>
-              )}
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-      {/* set modal data up */}
-      <Modal
-        size='lg'
-        show={showModal}
-        onHide={() => setShowModal(false)}
-        aria-labelledby='signup-modal'>
-        {/* tab container to do either signup or login component */}
-        <Tab.Container defaultActiveKey='login'>
-          <Modal.Header closeButton>
-            <Modal.Title id='signup-modal'>
-              <Nav variant='pills'>
-                <Nav.Item>
-                  <Nav.Link eventKey='login'>Login</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link eventKey='signup'>Sign Up</Nav.Link>
-                </Nav.Item>
-              </Nav>
-            </Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <Tab.Content>
-              <Tab.Pane eventKey='login'>
-                <LoginForm handleModalClose={() => setShowModal(false)} />
-              </Tab.Pane>
-              <Tab.Pane eventKey='signup'>
-                <SignUpForm handleModalClose={() => setShowModal(false)} />
-              </Tab.Pane>
-            </Tab.Content>
-          </Modal.Body>
-        </Tab.Container>
-      </Modal>
-    </>
+    <nav className="bg-gray-800 p-4">
+      <div className="container mx-auto flex justify-between items-center">
+        <Link to='/' className="text-white text-xl font-bold">Google Books Search</Link>
+        <button 
+          className="lg:hidden text-white focus:outline-none"
+          onClick={() => setShowModal(!showModal)}
+        >
+          <span className="material-icons">menu</span>
+        </button>
+        <div className="hidden lg:flex ml-auto">
+          <Link to='/' className="text-white ml-4">Search For Pets</Link>
+          {Auth.loggedIn() ? (
+            <>
+              <Link to='/saved' className="text-white ml-4">See Your Books</Link>
+              <button className="text-white ml-4" onClick={Auth.logout}>Logout</button>
+            </>
+          ) : (
+            <button className="text-white ml-4" onClick={() => setShowModal(true)}>Login/Sign Up</button>
+          )}
+        </div>
+      </div>
+    </nav>
+
+    <div className={`fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-50 ${showModal ? 'block' : 'hidden'}`}>
+      <div className="flex items-center justify-center h-full">
+        <div className="bg-white p-6 rounded-lg w-96">
+          <div className="flex justify-between mb-4">
+            <h2 className="text-2xl font-bold">Login/Sign Up</h2>
+            <button className="text-gray-600" onClick={() => setShowModal(false)}>
+              <span className="material-icons">close</span>
+            </button>
+          </div>
+          <div className="flex mb-4">
+            <button 
+              className={`text-sm font-medium py-2 px-4 rounded mr-2 focus:outline-none ${showModal ? 'bg-gray-800 text-white' : 'bg-gray-300 text-gray-700'}`}
+              onClick={() => setShowModal(true)}
+            >
+              Login
+            </button>
+            <button 
+              className={`text-sm font-medium py-2 px-4 rounded focus:outline-none ${showModal ? 'bg-gray-300 text-gray-700' : 'bg-gray-800 text-white'}`}
+              onClick={() => setShowModal(false)}
+            >
+              Sign Up
+            </button>
+          </div>
+          {showModal && (
+            <div>
+              {/* Render the Login or Sign Up form based on user's selection */}
+              {showModal ? <LoginForm handleModalClose={() => setShowModal(false)} /> : <SignUpForm handleModalClose={() => setShowModal(false)} />}
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  </>
   );
 };
 
