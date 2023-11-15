@@ -27,9 +27,14 @@ class AuthService {
     return localStorage.getItem('id_token');
   }
 
-  login(idToken) {
+  login(idToken, handleLoginSuccess) {
     localStorage.setItem('id_token', idToken);
     window.location.assign('/');
+
+    // Call handleLoginSuccess if it exists
+    if (handleLoginSuccess) {
+      handleLoginSuccess();
+    }
   }
 
   logout() {

@@ -28,8 +28,13 @@ const SignupForm = () => {
       const { data } = await addUser({
         variables: { ...userFormData },
       });
-
+  
       Auth.login(data.addUser.token);
+  
+      // Call handleSignupSuccess if it exists
+      if (handleSignupSuccess) {
+        handleSignupSuccess();
+      }
     } catch (err) {
       console.error(err);
       setShowAlert(true);
