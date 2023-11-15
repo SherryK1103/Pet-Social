@@ -14,11 +14,11 @@ const { loading, data } = useQuery(QUERY_ME);
   return (
     <header className="bg-primary text-light mb-4 py-3 flex-row align-center">
       <div className="bg-blue-100">
-        <div>
+        <div className="text-2xl font-bold mb-2"> 
           <Link className="text-light" to="/">
-            <h1 className="m-0">Pet Social!</h1>
+            <h1 className="m-3">Pet Social</h1>
           </Link>
-          <p className="m-0">FUR REAL CONNECTIONS</p>
+          <p className="m-3 text-sm">Fur Real Connections</p>
         </div>
         
         <div>

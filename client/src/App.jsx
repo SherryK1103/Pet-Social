@@ -1,6 +1,7 @@
-import { Outlet } from 'react-router-dom';
-import { ApolloClient, ApolloProvider, InMemoryCache} from '@apollo/client';
 import React from 'react';
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+import { UserProvider } from './components/userContext';
+import { Outlet } from 'react-router-dom';
 import './index.css';
 
 import Header from './components/header/index';
@@ -15,12 +16,14 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <>
-        <Header />
-        <Navbar />
-        <Outlet />
-        <Footer />
-      </>
+      <UserProvider>
+        <>
+          <Header />
+          <Navbar />
+          <Outlet />
+          <Footer />
+        </>
+      </UserProvider>
     </ApolloProvider>
   );
 }
