@@ -1,70 +1,96 @@
-import { useState } from 'react';
+import {  Fragment, useState } from 'react';
+import { Dialog, Transition } from '@headlessui/react'
+// import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom';
-import '../styles/index.css';
-// import { Navbar, Nav, Container, Modal, Tab } from 'tailwindcss';
 import SignUpForm from './SignupForm';
 import LoginForm from './LoginForm';
 
 import Auth from '../../utils/auth';
 
 const AppNavbar = () => {
-  // set modal display state
-  const [showModal, setShowModal] = useState(false);
+  const [openLoginModal, setOpenLoginModal] = useState(false);
+  const [openSignupModal, setOpenSignupModal] = useState(false);
+
+  const openLogin = () => {
+    setOpenLoginModal(true);
+  };
+
+  const closeLogin = () => {
+    setOpenLoginModal(false);
+  };
+
+  const openSignup = () => {
+    setOpenSignupModal(true);
+  };
+
+  const closeSignup = () => {
+    setOpenSignupModal(false);
+  };
 
   return (
     <>
-    <nav className="bg-gray-800 p-4">
-      <div className="container mx-auto flex justify-between items-center">
-        {/* <button 
-          className="lg:hidden text-white focus:outline-none"
-          onClick={() => setShowModal(!showModal)}
-        >
-        </button> */}
-        <div className="hidden lg:flex ml-auto">
-          <Link to='/' className="text-white ml-4">Search For Pets</Link>
-          {Auth.loggedIn() && (
-            <>
-              <button className="text-white ml-4" onClick={Auth.logout}>Logout</button>
-            </>
-          )
-          }
+      <nav className="bg-gray-800 p-4">
+        <div className="container mx-auto flex justify-between items-center">
+          {/* <button
+            className="lg:hidden text-white focus:outline-none"
+            onClick={openLogin}
+          >
+            Login
+          </button> */}
+          <div className="hidden lg:flex ml-auto">
+            <Link to="/" className="text-white ml-4">
+              Search For Pets
+            </Link>
+            {Auth.loggedIn() ? (
+              <button className="text-white ml-4" onClick={Auth.logout}>
+                Logout
+              </button>
+            ) : (
+              <>
+                <button
+                  className="text-white ml-4"
+                  onClick={openLogin}
+                >
+                  Login
+                </button>
+                <button
+                  className="text-white ml-4"
+                  onClick={openSignup}
+                >
+                  Sign Up
+                </button>
+              </>
+            )}
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
 
-    <div className={`fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-50 ${showModal ? 'block' : 'hidden'}`}>
-      <div className="flex items-center justify-center h-full">
-        <div className="bg-white p-6 rounded-lg w-96">
-          <div className="flex justify-between mb-4">
-            <h2 className="text-2xl font-bold">Login/Sign Up</h2>
-            <button className="text-gray-600" onClick={() => setShowModal(false)}>
-              <span className="material-icons">close</span>
-            </button>
-          </div>
-          <div className="flex mb-4">
-            <button 
-              className={`text-sm font-medium py-2 px-4 rounded mr-2 focus:outline-none ${showModal ? 'bg-gray-800 text-white' : 'bg-gray-300 text-gray-700'}`}
-              onClick={() => setShowModal(true)}
-            >
-              Login
-            </button>
-            <button 
-              className={`text-sm font-medium py-2 px-4 rounded focus:outline-none ${showModal ? 'bg-gray-300 text-gray-700' : 'bg-gray-800 text-white'}`}
-              onClick={() => setShowModal(false)}
-            >
-              Sign Up
-            </button>
-          </div>
-          {showModal && (
-            <div>
-              {/* Render the Login or Sign Up form based on user's selection */}
-              {showModal ? <LoginForm handleModalClose={() => setShowModal(false)} /> : <SignUpForm handleModalClose={() => setShowModal(false)} />}
-            </div>
-          )}
+      {/* Login Modal */}
+      <Transition show={openLoginModal} as={Fragment}>
+        <Dialog
+          as="div"
+          className="fixed inset-0 z-10 overflow-y-auto"
+          onClose={closeLogin}
+        >
+        <div className="min-h-screen px-4 text-center">
+          
         </div>
-      </div>
-    </div>
-  </>
+          <LoginForm closeModal={closeLogin} />
+        </Dialog>
+      </Transition>
+
+      {/* Sign Up Modal */}
+      <Transition show={openSignupModal} as={Fragment}>
+        <Dialog
+          as="div"
+          className="fixed inset-0 z-10 overflow-y-auto"
+          onClose={closeSignup}
+        >
+          {/* ... Modal Content */}
+          <SignUpForm closeModal={closeSignup} />
+        </Dialog>
+      </Transition>
+    </>
   );
 };
 

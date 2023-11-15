@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import { ApolloClient, ApolloProvider, InMemoryCache} from '@apollo/client';
 import React from 'react';
+import './index.css';
 
 import Header from './components/header/index';
 import Footer from './components/footer/index';
