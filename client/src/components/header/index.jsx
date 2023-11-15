@@ -16,6 +16,7 @@ const Header = () => {
           </Link>
           <p className="m-0">FUR REAL CONNECTIONS</p>
         </div>
+        
         <div>
           {Auth.loggedIn() && (
             <>
