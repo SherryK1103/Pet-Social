@@ -1,171 +1,47 @@
 # Pet-Social
 
+## Screenshot
 
+![PET SOCIAL SS](./client/public/assets/MERN-SS.png)
 
+## Description
 
-# 24 Final Project: MERN Stack Single-Page Application
+A unique social media app exclusively for pets and their humans. Say goodbye to unwanted content and hello to a community that's all about adorable pets and the joy they bring. No more scrolling through unrelated posts – just pure, unfiltered pet happiness! Join us and create a profile exclusively for your furry friend, where their cuteness takes center stage. Finally, a social media haven for pet lovers.
 
-Projects have played a key role in your journey to becoming a full-stack web developer. As you apply for development jobs, your portfolio is absolutely vital to opening doors to opportunities. Your portfolio showcases high-quality deployed examples of your work, and you can use your finished projects for that very purpose.
+## Table of Contents
 
-This project is a fantastic opportunity to show employers your collaborative skills and coding abilities, especially in the context of a scalable, user-focused MERN app. Remember that employers want to see what you can do, but they also want to see how you work with other developers. The more examples of deployed collaborative work you have in your portfolio, the more likely you are to get an interview and a job.
+- [Technology](#technology)
+- [Contributors](#contributors)
+- [Installation](#installation)
+- [Links](#links)
+- [License](#license)
 
-## Project Requirements
+## Technologies Used <a name="technology"></a>
 
-Your group will use everything you’ve learned throughout this course to create a MERN stack single-page application that works with real-world data to solve a real-world challenge, with a focus on data and user demand. This project will provide you with the best opportunity to demonstrate your problem-solving skills, which employers will want to see during interviews. Once again, the user story and acceptance criteria will depend on the project that you create, but your project must fulfill the following requirements:
+MongoDB - A NoSQL database system that is used to store, manage, and retrieve data in a flexible, schema-free format, particularly well-suited for applications with evolving and unpredictable data structures.
+ExpressJS - A web application framework for Node.js that simplifies the process of building scalable and robust web applications by providing a set of features and tools for handling HTTP requests and responses.
+ReactJS - Used to build elements of page including header, nav-bar, core content which changes based on user interaction, and footer.
+NodeJS - A JavaScript runtime that allows developers to execute server-side code, enabling the development of scalable and efficient network applications.
+Tailiwindcss - A utility-first CSS framework that provides a low-level set of building blocks for designing and styling web interfaces with a focus on flexibility and efficiency.
+JWT - JSON Web Token, is a compact, URL-safe means of representing claims between two parties. It is often used for authentication and authorization purposes in web development.
+GraphQL - A query language and runtime for APIs (Application Programming Interfaces) that was developed by Facebook. It provides a more efficient, powerful, and flexible alternative to traditional REST APIs.
 
-* Use React for the front end.
+## Contributors <a name="contributors"></a>
 
-* Use GraphQL with a Node.js and Express.js server.
+Donna Goon: https://github.com/GDonna
 
-* Use MongoDB and the Mongoose ODM for the database.
+Nick Page: https://github.com/dizzymouse0
 
-* Use queries and mutations for retrieving, adding, updating, and deleting data.
+## Installation <a name="installation"></a>
 
-* Be deployed using Heroku (with data).
+To install the Pet Social app, git clone thie repository to your local computer. The user must also install Node.js and Tailwindcss in order to use this application.
 
-* Have a polished UI.
+## Links <a name="links"></a>
 
-* Be responsive.
+Deployed Link:
 
-* Be interactive (i.e., accept and respond to user input).
+GitHub Repo: https://github.com/SherryK1103/Pet-Social
 
-* Include authentication (JWT).
+## Licenses <a name="license"></a>
 
-* Protect sensitive API key information on the server.
-
-* Have a clean repository that meets quality coding standards (file structure, naming conventions, best practices for class and id naming conventions, indentation, high-quality comments, etc.).
-
-* Have a high-quality README (with unique name, description, technologies used, screenshot, and link to deployed application).
-
-### CSS Styling
-
-Instead of using a CSS library like Bootstrap, consider one of the following suggestions:
-
-* Look into the concept of CSS-in-JS, which abstracts CSS to the component level, using JavaScript to describe styles in a declarative and maintainable way. Some popular libraries include [styled-components](https://styled-components.com/) and [Emotion](https://emotion.sh/docs/introduction).
-
-* Try using a component library, such as [Semantic UI](https://semantic-ui.com/), [Chakra UI](https://chakra-ui.com/), or [Ant Design](https://ant.design/).
-
-* Create all the CSS for your application just using CSS.
-
-Ultimately, it doesn't matter which of these options you choose&mdash;it just needs to look professional and be mobile-friendly.
-
-### Payment Platform
-
-Consider integrating the Stripe payment platform. Even if you don’t create an e-commerce application, you could set up your site to accept charitable donations.
-
-### Bonus
-
-Although this is not a requirement for your project, see if you can also implement functionality to meet the minimum requirements of a PWA:
-
-* Uses a web manifest
-
-* Uses a service worker for offline functionality
-
-* Is installable
-
-## Presentation Requirements
-
-Use this [project presentation template](https://docs.google.com/presentation/d/10QaO9KH8HtUXj__81ve0SZcpO5DbMbqqQr4iPpbwKks/edit?usp=sharing) to address the following:
-
-* Elevator pitch: a one minute description of your application
-
-* Concept: What is your user story? What was your motivation for development?
-
-* Process: What were the technologies used? How were tasks and roles broken down and assigned? What challenges did you encounter? What were your successes?
-
-* Demo: Show your stuff!
-
-* Directions for Future Development
-
-* Links to the deployed application and the GitHub repository. Use the [Guide to Deploy with Heroku and MongoDB Atlas](https://coding-boot-camp.github.io/full-stack/mongodb/deploy-with-heroku-and-mongodb-atlas) on The Full-Stack Blog if you need a reminder on how to deploy to Heroku.
-
-## Grading Requirements
-
-> **Note**: If a project submission is marked as “0”, it is considered incomplete and will not count towards your graduation requirements. Examples of incomplete submissions include the following:
->
-> * A repository that has no code
->
-> * A repository that includes a unique name but nothing else
->
-> * A repository that includes only a README file but nothing else
->
-> * A repository that only includes starter code
-
-This project is graded based on the following criteria:
-
-### Technical Acceptance Criteria: 25%
-
-* Satisfies the following code requirements:
-
-  * Application uses React for the front end.
-
-  * Application has a GraphQL API with a Node.js and Express.js server, and uses queries and mutations for retrieving, adding, updating, and deleting data.
-
-  * Application uses MongoDB and the Mongoose ODM for the database and protects sensitive API key information on the server.
-
-  * Application includes user authentication using JWT.
-
-### Concept 10%
-
-* Application should be a unique and novel idea.
-
-* Your group should clearly and concisely articulate your project idea.
-
-### Deployment: 20%
-
-* Application deployed at live URL on Heroku and loads with no errors.
-
-* Application GitHub URL submitted.
-
-### Repository Quality: 10%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class and id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains a high-quality README file with description, screenshot, and link to deployed application.
-
-### Application Quality: 15%
-
-* Application user experience is intuitive and easy to navigate.
-
-* Application user interface style is clean and polished.
-
-* Application is responsive.
-
-### Presentation 10%
-
-* Your group should present using a slide deck.
-
-* Every group member should speak during the presentation.
-
-* Your presentation should follow the [Project Presentation Template](https://docs.google.com/presentation/d/10QaO9KH8HtUXj__81ve0SZcpO5DbMbqqQr4iPpbwKks/edit?usp=sharing).
-
-### Collaboration 10%
-
-* There are no major disparities in the number of GitHub contributions between group members.
-
-### Bonus
-
-Fulfilling all three of the following requirements to turn your app into a PWA will add 10 points to your grade. Note that the highest grade you can achieve is still a 100:
-
-* Uses a web manifest
-
-* Uses a service worker for offline functionality
-
-* Is installable
-
-## How to Submit Your MERN Stack Single-Page Application
-
-**Each member of your group** is required to submit the following for review:
-
-* The URL of the deployed application.
-
-* The URL of the GitHub repository, with a unique name and a README describing the project.
-
----
-© 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+This project is covered under the MIT License https://opensource.org/licenses/MIT
