@@ -6,7 +6,12 @@ const Header = () => {
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
-  };
+  }; 
+
+
+const loggedIn = Auth.loggedIn();
+const profile = loggedIn ? Auth.getProfile() : null;
+
   return (
     <header className="bg-primary text-light mb-4 py-3 flex-row align-center">
       <div className="bg-blue-100">
@@ -22,7 +27,7 @@ const Header = () => {
             <>
               <Link className="btn btn-lg btn-info m-2" to="/me">
                 {/* Run the getProfile() method to get access to the unencrypted token value in order to retrieve the user's username  */}
-                {Auth.getProfile().authenticatedPerson.username}'s profile
+                {profile?.authenticatedPerson?.username}'s profile
               </Link>
               <button className="btn btn-lg btn-light m-2" onClick={logout}>
                 Logout

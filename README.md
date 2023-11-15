@@ -38,7 +38,7 @@ To install the Pet Social app, git clone thie repository to your local computer.
 
 ## Links <a name="links"></a>
 
-Deployed Link:
+Deployed Link: https://guarded-basin-73624-223ecb536746.herokuapp.com/
 
 GitHub Repo: https://github.com/SherryK1103/Pet-Social
 
