@@ -15,23 +15,19 @@ const AppNavbar = () => {
     <>
     <nav className="bg-gray-800 p-4">
       <div className="container mx-auto flex justify-between items-center">
-        <Link to='/' className="text-white text-xl font-bold">Google Books Search</Link>
-        <button 
+        {/* <button 
           className="lg:hidden text-white focus:outline-none"
           onClick={() => setShowModal(!showModal)}
         >
-          <span className="material-icons">menu</span>
-        </button>
+        </button> */}
         <div className="hidden lg:flex ml-auto">
           <Link to='/' className="text-white ml-4">Search For Pets</Link>
-          {Auth.loggedIn() ? (
+          {Auth.loggedIn() && (
             <>
-              <Link to='/saved' className="text-white ml-4">See Your Books</Link>
               <button className="text-white ml-4" onClick={Auth.logout}>Logout</button>
             </>
-          ) : (
-            <button className="text-white ml-4" onClick={() => setShowModal(true)}>Login/Sign Up</button>
-          )}
+          )
+          }
         </div>
       </div>
     </nav>
