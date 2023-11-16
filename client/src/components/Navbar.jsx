@@ -5,7 +5,6 @@ import SignUpForm from './SignupForm';
 import LoginForm from './LoginForm';
 import { useContext } from 'react';
 // import { UserContext } from './userContext';
-
 import Auth from '../../utils/auth';
 
 const AppNavbar = () => {
@@ -18,8 +17,8 @@ const AppNavbar = () => {
     setOpenLoginModal(true);
   };
 
-  const closeLogin = (e) => {
-    e.stopPropagation();
+  const closeLogin = (e) => { // Hey Donna this might need to change
+    e.nativeEvent.stopPropagation();
     setOpenLoginModal(false);
   };
 
@@ -35,8 +34,8 @@ const AppNavbar = () => {
     setOpenSignupModal(true);
   };
 
-  const closeSignup = (e) => {
-    e.stopPropagation();
+  const closeSignup = (e) => { // Hey Donna this might need to change
+    e.nativeEvent.stopPropagation();
     setOpenSignupModal(false);
   };
 
@@ -93,7 +92,7 @@ const AppNavbar = () => {
           as="div"
           className="fixed inset-0 z-10 overflow-y-auto"
           onClose={closeLogin}
-          overlayClassName="fixed inset-0 z-10 overflow-y-auto"
+          overlayclassname="fixed inset-0 z-10 overflow-y-auto"
         >
           <div className="min-h-screen px-4 text-center">
             <div className="bg-white p-8 rounded shadow-lg">
@@ -111,7 +110,7 @@ const AppNavbar = () => {
          as="div"
          className="fixed inset-0 z-10 overflow-y-auto"
          onClose={closeSignup}
-         overlayClassName="fixed inset-0 z-10 overflow-y-auto"
+         overlayclassname="fixed inset-0 z-10 overflow-y-auto"
        >
          <div className="min-h-screen px-4 text-center">
            <div className="bg-white p-8 rounded shadow-lg">
