@@ -1,5 +1,4 @@
 import { useState } from 'react';
-// import { Form, Button, Alert } from 'tailwindcss';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../../utils/mutations';
 import Auth from '../../utils/auth';
@@ -50,7 +49,7 @@ const SignupForm = () => {
   return (
 
       <>
-      <form className="max-w-md mx-auto mt-8" noValidate validated={validated} onSubmit={handleFormSubmit}>
+      <form className="max-w-md mx-auto mt-8" onSubmit={handleFormSubmit}>
         {showAlert && (
           <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4">
             <span className="inline-block align-middle mr-8">
