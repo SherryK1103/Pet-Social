@@ -18,7 +18,6 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.17",
-    "apollo-server-express": "^3.13.0",
     "tailwind": "^4.0.0",
     "vite-plugin-windicss": "^1.9.1"
   }
