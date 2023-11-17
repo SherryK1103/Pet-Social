@@ -8,7 +8,7 @@ const Welcome = () => {
             Please click on the links above to login or signup!
           </div>
           <div className= "flex justify-center p-20">
-            <img src= "./public/assets/Pacino.jpg" alt="Pacino" width="200" height="200"></img>
+            <img src= "/public/assets/Pacino.jpg" alt="Pacino" width="200" height="200"></img>
           </div>
         </div>
       </div>

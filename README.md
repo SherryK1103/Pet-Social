@@ -2,7 +2,7 @@
 
 ## Screenshot
 
-![PET SOCIAL SS](./client/public/assets/2PET-SS.png)
+![PET SOCIAL SS](./client/public/assets/3PET-SS.png)
 
 ## Description
 
@@ -29,8 +29,6 @@ GraphQL - A query language and runtime for APIs (Application Programming Interfa
 ## Contributors <a name="contributors"></a>
 
 Donna Goon: https://github.com/GDonna
-
-Nick Page: https://github.com/dizzymouse0
 
 ## Installation <a name="installation"></a>
 
