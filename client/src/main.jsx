@@ -6,6 +6,7 @@ import App from './App.jsx';
 import LoginForm from './components/LoginForm.jsx';
 import SignupForm from './components/SignupForm.jsx';
 import Navbar from './components/Navbar.jsx';
+import Welcome from './components/Welcome.jsx';
 import { UserProvider } from './components/userContext.jsx';
 
 const router = createBrowserRouter([
@@ -19,7 +20,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <LoginForm />,
+        element: <Welcome />,
       },
       {
         path: '/signup',
