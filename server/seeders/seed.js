@@ -12,7 +12,7 @@ connection.once('open', async () => {
     if (userCheck.length) {
       await connection.dropCollection('users');
     }
-
+    // line 16 is porbably a problem, hook is not getting triggered
     await User.collection.insertMany(userSeeds);
 
   } catch (err) {

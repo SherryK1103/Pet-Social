@@ -81,7 +81,7 @@ const LoginForm = () => {
 
         <div className="mb-4">
           <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">
-            Email
+            Emailnnn
           </label>
           <input
             type="text"
