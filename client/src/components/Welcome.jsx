@@ -1,18 +1,12 @@
 const Welcome = () => {
   return (
-    <body className="bg-blue-200">
-      <div className="container flex justify-center">
-        <div className="welcome-content">
-          <p className="m-3 "> Arf Arf! Welcome to Pet Social!</p>
-          <div className= "m-3 ">
-            Please click on the links above to login or signup!
-          </div>
-          <div className= "flex justify-center p-20">
-            <img src= "/public/assets/Pacino.jpg" alt="Pacino" width="200" height="200"></img>
-          </div>
-        </div>
+    <div className="flex flex-col items-center justify-center h-screen">
+      <div className="text-3xl font-bold mb-3">Arf Arf! Welcome to Pet Social.</div>
+      <p className="mb-5">Please click on the links above to login or signup.</p>
+      <div className="flex justify-center">
+        <img src="/public/assets/Pacino.JPG" alt="Pacino" width="200" height="200" className="rounded-full" />
       </div>
-    </body>
+    </div>
   );
 };
 
