@@ -35,10 +35,11 @@ const LoginForm = () => {
     setValidated(true);
 
     try {
+     console.log(userFormData)
       const { data } = await login({
         variables: { ...userFormData },
       });
-
+      
       console.log(data);
       Auth.login(data.login.token);
       setShowSuccessMessage(true); // Set success message state to true
