@@ -12,8 +12,8 @@ const Header = () => {
   const { loading, data } = useQuery(QUERY_ME);
 
   return (
-    <header className="bg-primary text-light mb-4 py-3 flex-row align-center">
-      <div className="bg-blue-100 text-center">
+    <header>
+      <div className="bg-blue-300 text-center">
         <div className="text-4xl font-bold mb-2 text-light">
           <Link to="/">
             <h1 className="m-3 inline-block">🐾 Pet Social 🐾</h1>

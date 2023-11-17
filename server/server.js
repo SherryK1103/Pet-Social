@@ -21,7 +21,7 @@ const startApolloServer = async () => {
 
   app.use('/graphql', expressMiddleware(server));
 
-  // Serve static assets from the "public" directory
+  // This is the only thing added to this file on 11-17-23
   app.use(express.static(path.join(__dirname, 'client', 'public')));
 
   if (process.env.NODE_ENV === 'production') {

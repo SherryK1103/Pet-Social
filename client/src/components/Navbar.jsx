@@ -1,10 +1,8 @@
-import { Fragment, useState } from 'react';
+import { Fragment, useState, useContext } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { Link } from 'react-router-dom';
 import SignUpForm from './SignupForm';
 import LoginForm from './LoginForm';
-import { useContext } from 'react';
-// import { UserContext } from './userContext';
 import Auth from '../../utils/auth';
 
 const AppNavbar = () => {
