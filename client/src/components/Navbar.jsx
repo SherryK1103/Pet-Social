@@ -63,7 +63,7 @@ const AppNavbar = () => {
     <>
       <nav className="bg-gray-800 p-4">
         <div className="container mx-auto flex justify-between items-center">
-          <div className="hidden lg:flex ml-auto">
+          <div className="ml-auto">
             <Link to="/" className="text-white ml-4">
               Search For Pets
             </Link>
@@ -84,6 +84,7 @@ const AppNavbar = () => {
           </div>
         </div>
       </nav>
+
   
       {/* Login Modal */}
       {openLoginModal && (
