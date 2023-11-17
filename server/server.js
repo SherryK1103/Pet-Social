@@ -21,12 +21,14 @@ const startApolloServer = async () => {
 
   app.use('/graphql', expressMiddleware(server));
 
-  // if we're in production, serve client/dist as static assets
+  // Serve static assets from the "public" directory
+  app.use(express.static(path.join(__dirname, 'client', 'public')));
+
   if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, '../client/dist')));
+    app.use(express.static(path.join(__dirname, 'client', 'dist')));
 
     app.get('*', (req, res) => {
-      res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+      res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
     });
   }
 
