@@ -1,11 +1,11 @@
 const Welcome = () => {
   return (
 
-    <body>
-      <div className="container">
-        <div className="welcome-content bg-blue-200">
-          <p className="m-3 flex justify-center"> Arf Arf! Welcome to Pet Social!</p>
-          <div className= "m-3 flex justify-center">
+    <body className="bg-blue-200">
+      <div className="container flex justify-center">
+        <div className="welcome-content">
+          <p className="m-3 "> Arf Arf! Welcome to Pet Social!</p>
+          <div className= "m-3 ">
             Please click on the links above to login or signup!
           </div>
             <div className= "flex justify-center p-20">
