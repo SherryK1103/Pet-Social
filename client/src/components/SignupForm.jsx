@@ -47,9 +47,8 @@ const SignupForm = () => {
   };
 
   return (
-
-      <>
-      <form className="max-w-md mx-auto mt-8" onSubmit={handleFormSubmit}>
+    <>
+      <form className="max-w-md mx-auto mt-8 sm:w-full md:w-2/3 lg:w-1/2" onSubmit={handleFormSubmit}>
         {showAlert && (
           <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4">
             <span className="inline-block align-middle mr-8">
