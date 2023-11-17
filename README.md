@@ -32,7 +32,7 @@ Donna Goon: https://github.com/GDonna
 
 ## Installation <a name="installation"></a>
 
-To install the Pet Social app, git clone thie repository to your local computer. The user must also install Node.js and Tailwindcss in order to use this application.
+To install the Pet Social app, git clone the repository to your local computer. The user must also install Node.js and Tailwindcss in order to use this application.
 
 ## Links <a name="links"></a>
 
