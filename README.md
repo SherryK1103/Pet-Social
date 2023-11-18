@@ -2,7 +2,7 @@
 
 ## Screenshot
 
-![PET SOCIAL SS](./client/public/assets/3PET-SS.png)
+![PET SOCIAL SS](./client/public/assets/4PET-SS.png)
 
 ## Description
 
